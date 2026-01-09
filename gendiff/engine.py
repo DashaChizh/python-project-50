@@ -1,4 +1,6 @@
 import argparse
+import json
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -12,6 +14,12 @@ def parse_args():
     parser.add_argument('second_file', type=str)
     args = parser.parse_args()
     parser.print_help
+
+    data1 = json.load(open('file1.json'))
+    data2 = json.load(open('file2.json'))
+    print('file1: ', data1)
+    print('file2: '/ data2)
+
     print(f"{args.first_file}, {args.second_file}")
     return args.first_file, args.second_file
 
