@@ -14,6 +14,6 @@ def test_generate_diff():
   - timeout: 50
   + timeout: 20
   + verbose: true
-  }"""
+}"""
 
     assert result == expected
