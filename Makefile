@@ -12,3 +12,10 @@ package-install:
 
 lint:
 	uv run ruff check gendiff
+
+
+check:
+	test lint
+
+test:
+	uv run pytest
