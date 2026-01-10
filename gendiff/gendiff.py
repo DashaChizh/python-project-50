@@ -4,8 +4,7 @@ import json
 def compare_datas(data1, data2):
     result = []
     all_keys = sorted(set(data1.keys()) | set(data2.keys()))
-    
-        
+            
     for key in all_keys:
         value1 = data1.get(key)
         value2 = data2.get(key)
@@ -22,13 +21,15 @@ def compare_datas(data1, data2):
 
     return result
     
+
 def format_value(value):
     if isinstance(value, bool):
         return str(value).lower()
-    elif value is None:
-        return 'null'
+    # elif value is None:
+        # return 'null'
     else:
         return str(value)    
+
 
 def generate_diff(filepath1, filepath2, format_name='stylish'):
     data1 = json.load(open(filepath1))
