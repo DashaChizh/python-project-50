@@ -1,12 +1,17 @@
+from pathlib import Path
 from gendiff import generate_diff
 
 
-def test_generate_diff():
-    filepath1 = 'tests/test_data/file1.json'
-    filepath2 = 'tests/test_data/file2.json'
+def get_test_data_path(filename1, filename2):
+    filepath1 = Path(__file__).parent / "test_data" / filename1
+    filepath2 = Path(__file__).parent / "test_data" / filename2
+    return str(filepath1), str(filepath2)
 
-    result = generate_diff(filepath1, filepath2)
 
+def test_with_json():
+    filepath1, filepath2 = get_test_data_path("file1.json", "file2.json")
+    actual = generate_diff(filepath1, filepath2)
+    
     expected = """{
   - follow: false
     host: hexlet.io
@@ -15,5 +20,19 @@ def test_generate_diff():
   + timeout: 20
   + verbose: true
 }"""
+    assert actual == expected
 
-    assert result == expected
+
+def test_with_yaml():
+    filepath1, filepath2 = get_test_data_path("file1.yaml", "file2.yaml")
+    actual = generate_diff(filepath1, filepath2)
+    
+    expected = """{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}"""
+    assert actual == expected
