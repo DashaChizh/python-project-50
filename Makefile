@@ -1,9 +1,6 @@
 install:
 	uv sync
 
-dev-install:
-	uv sync --dev
-
 gendiff:
 	uv run gendiff
 
