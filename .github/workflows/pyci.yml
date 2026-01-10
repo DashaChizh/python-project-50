@@ -33,7 +33,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=gendiff_python-project-50
-            -Dsonar.organization=gendiff
-            -Dsonar.branch.name=main
+            -Dsonar.projectKey=DashaChizh_python-project-50
+            -Dsonar.organization=dashachizh
             -Dsonar.python.coverage.reportPaths=coverage.xml
