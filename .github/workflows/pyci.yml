@@ -35,4 +35,5 @@ jobs:
           args: >
             -Dsonar.projectKey=gendiff_python-project-50
             -Dsonar.organization=gendiff
+            -Dsonar.branch.name=main
             -Dsonar.python.coverage.reportPaths=coverage.xml
