@@ -1,6 +1,5 @@
 import json
 
-
 '''def compare_datas(data1, data2):
     result = []
     all_keys = sorted(set(data1.keys()) | set(data2.keys()))
