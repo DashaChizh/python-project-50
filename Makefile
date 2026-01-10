@@ -1,6 +1,9 @@
 install:
 	uv sync
 
+dev-install:
+	uv sync --dev
+
 gendiff:
 	uv run gendiff
 
@@ -15,12 +18,13 @@ lint:
 
 
 check:
-	test lint
+	lint test
 
 test:
-	uv run pytest
+	uv run pytest tests/
 
 test-coverage:
-	uv run pytest --cov=gendiff --cov-report xml
+	uv run pytest --cov=gendiff --cov-report xml tests/
 
-.PHONY: install test lint selfcheck check build
+selfcheck: check
+.PHONY:  install dev-install gendiff build package-install lint test test-coverage check selfcheck
