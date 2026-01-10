@@ -7,13 +7,13 @@ def test_generate_diff():
 
     result = generate_diff(filepath1, filepath2)
 
-    expected = '''{
-    - follow: false
+    expected = """{
+  - follow: false
     host: hexlet.io
-    - proxy: 123.234.53.22
-    - timeout: 50
-    + timeout: 20
-    + verbose: true
-    }'''
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+  }"""
 
     assert result == expected
