@@ -36,3 +36,21 @@ def test_with_yaml():
   + verbose: true
 }"""
     assert actual == expected
+
+def test_with_json_and_yaml():
+    filepath1, filepath2 = get_test_data_path("file1.json", "file2.yaml")
+    actual = generate_diff(filepath1, filepath2)
+    
+    expected = """{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}"""
+    assert actual == expected
+    
+    filepath1, filepath2 = get_test_data_path("file1.yaml", "file2.json")
+    actual = generate_diff(filepath1, filepath2)
+    assert actual == expected
