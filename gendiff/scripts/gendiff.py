@@ -13,11 +13,14 @@ def main():
 
     parser.add_argument(
         '-f', '--format',
-        help='set format of output'
+        default='stylish',
+        help='output format (default: "stylish")'
         )
     
     args = parser.parse_args()
-    diff = generate_diff(args.first_file, args.second_file)
+    print(f"Сравниваю файлы: {args.first_file} и {args.second_file}")
+    
+    diff = generate_diff(args.first_file, args.second_file, args.format)
     print(diff)
 
 

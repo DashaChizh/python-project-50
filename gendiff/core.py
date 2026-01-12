@@ -1,20 +1,20 @@
-import json
-
-import yaml
-
-
-def load_data(filepath):
-    if filepath.endswith('.json'):
-        return json.load(open(filepath))
-    if filepath.endswith(('.yaml', '.yml')):
-        return yaml.safe_load(open(filepath))
+from gendiff.diff_builder import build_diff
+from gendiff.formatter.stylish import format_stylish
+from gendiff.parser import parse_file
 
 
-def generate_diff(filepath1, filepath2):
-    data1 = load_data(filepath1)
-    data2 = load_data(filepath2)
+def generate_diff(file_path1, file_path2, format_name='stylish'):
+    data1 = parse_file(file_path1)
+    data2 = parse_file(file_path2)
 
-    result = []
+    diff = build_diff(data1, data2)
+
+    if format_name == 'stylish':
+        return format_stylish(diff)
+    else:
+        print(f"Unknown format: {format_name}")
+
+    '''result = []
     all_keys = sorted(set(data1.keys()) | set(data2.keys()))
 
     for key in all_keys:
@@ -28,11 +28,10 @@ def generate_diff(filepath1, filepath2):
         else:
             result.append(f"    {key}: {str(data1[key]).lower()}")
 
-    # diff_lines = compare_datas(data1, data2)
-    # result = "{\n" + "\n".join(diff_lines) + "\n}"
+
 
     result = "{\n" + "\n".join(result) + "\n}"
     
-    return result
+    return result'''
 
 
