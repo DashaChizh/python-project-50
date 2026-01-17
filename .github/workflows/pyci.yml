@@ -28,11 +28,19 @@ jobs:
         run: |
           make test-coverage
       - name: SonarQubeScan
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
             -Dsonar.projectKey=DashaChizh_python-project-50
             -Dsonar.organization=dashachizh
+            -Dsonar.projectName="Python Project 50"
+            -Dsonar.projectVersion=1.0
+            -Dsonar.sources=gendiff
+            -Dsonar.tests=tests
+            -Dsonar.language=py
             -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.python.xunit.reportPath=test-results.xml
+            -Dsonar.exclusions=**/__pycache__/**,**/*.pyc
+            -Dsonar.coverage.exclusions=tests/**,**/__pycache__/**
