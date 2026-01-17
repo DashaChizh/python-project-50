@@ -1,5 +1,5 @@
 from gendiff.diff_builder import build_diff
-from gendiff.formatters.stylish import format_stylish
+from gendiff.formatter.stylish import format_stylish
 
 def test_format_stylish_simple():
     diff = [

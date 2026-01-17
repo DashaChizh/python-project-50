@@ -18,7 +18,7 @@ def test_nested_json():
     actual = generate_diff(filepath1, filepath2)
     
 
-    expected_start = "{\n  common: {\n    + follow: false"
+    expected_start = "{\n    common: {\n      + follow: false"
     
     assert actual.startswith(expected_start)
     assert "  - setting2: 200" in actual
