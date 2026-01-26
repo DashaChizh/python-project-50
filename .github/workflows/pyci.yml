@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install uv
-          uv pip install PyYAML
+          uv add PyYAML
           make install
       - name: Run linter
         run: |
