@@ -17,15 +17,13 @@ jobs:
       - name: Install dependencies
         run: |
           pip install uv
-          uv pip install PyYAM
+          uv pip install PyYAML
           make install
       - name: Run linter
         run: |
-          uv pip install PyYAML
           make lint
       - name: Run tests
         run: |
-          uv pip install PyYAML
           make test
       - name: Run test coverage
         run: |

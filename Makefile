@@ -11,7 +11,6 @@ package-install:
 	uv tool install --force dist/*.whl
 
 lint:
-	uv pip install PyYAML
 	uv run ruff check gendiff
 
 
