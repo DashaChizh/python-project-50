@@ -11,6 +11,7 @@ package-install:
 	uv tool install --force dist/*.whl
 
 lint:
+	uv pip install PyYAML
 	uv run ruff check gendiff
 
 
@@ -18,12 +19,12 @@ check:
 	lint test
 
 test:
+	uv pip install PyYAML
 	uv run pytest tests/
-	pip install PyYAML
-	pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
-
+	
 test-coverage:
-	uv run pytest --cov=gendiff --cov-report xml tests/
+	uv pip install PyYAML
+	uv run pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
 
 selfcheck: check
-.PHONY:  install dev-install gendiff build package-install lint test test-coverage check selfcheck
+.PHONY: install gendiff build package-install lint test test-coverage check selfcheck
