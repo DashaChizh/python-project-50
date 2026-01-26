@@ -25,8 +25,7 @@ def main():
         )
     
     args = parser.parse_args()
-    print(f"Сравниваю файлы: {args.first_file} и {args.second_file}\n")
-    
+
     diff = generate_diff(args.first_file, args.second_file, args.format)
     print(diff)
 
