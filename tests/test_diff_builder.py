@@ -1,5 +1,5 @@
-import json
 from gendiff.diff_builder import build_diff
+
 
 def test_build_diff_simple():
     data1 = {"a": 1, "b": 2}

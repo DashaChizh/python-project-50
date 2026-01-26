@@ -24,6 +24,7 @@ def test_format_json_simple_unchanged():
     
     assert parsed_result == expected
 
+
 def test_format_json_simple_added():
     diff = [
         {
@@ -36,7 +37,6 @@ def test_format_json_simple_added():
     result = format_json(diff)
     parsed_result = json.loads(result)
     
- 
     expected = [
         {
             'key': 'age',
@@ -95,6 +95,7 @@ def test_format_json_changed_value():
     ]
     
     assert parsed_result == expected
+
 
 def test_format_json_nested_structure():
     diff = [

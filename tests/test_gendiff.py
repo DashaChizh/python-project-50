@@ -37,6 +37,7 @@ def test_generate_diff_yaml():
 }"""
     assert actual == expected
 
+
 def test_with_json_and_yaml():
     filepath1, filepath2 = get_test_data_path("file1.json", "file2.yaml")
     actual = generate_diff(filepath1, filepath2)

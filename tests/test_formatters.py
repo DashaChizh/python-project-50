@@ -1,7 +1,7 @@
-from gendiff.diff_builder import build_diff
 from gendiff.formatter.stylish import format_stylish
 
-def test_format_stylish_simple():
+
+def test_format_stylish():
     diff = [
         {'key': 'a', 'type': 'unchanged', 'value': 1},
         {'key': 'b', 'type': 'removed', 'value': 2},

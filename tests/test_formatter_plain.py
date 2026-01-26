@@ -1,8 +1,5 @@
-import json
-import yaml
 from gendiff import generate_diff
 from gendiff.formatter.plain import format_plain, format_value
-from gendiff.diff_builder import build_diff
 from pathlib import Path
 
 
@@ -55,7 +52,8 @@ def test_format_plain_nested():
                             'key': 'doge',
                             'type': 'nested',
                             'children': [
-                                {'key': 'wow', 'type': 'changed', 'value1': '', 'value2': 'so much'}
+                                {'key': 'wow', 'type': 'changed', 
+                                 'value1': '', 'value2': 'so much'}
                             ]
                         }
                     ]
@@ -68,13 +66,15 @@ def test_format_plain_nested():
     
     assert "Property 'common.follow' was added with value: false" in result
     assert "Property 'common.setting2' was removed" in result
-    assert "Property 'common.setting6.doge.wow' was updated. From '' to 'so much'" in result
+    assert "Property 'common.setting6.doge.wow' was updated. " + \
+        "From '' to 'so much'" in result
 
 
 def test_format_plain_complex_value():
     diff = [
         {'key': 'setting5', 'type': 'added', 'value': {'key5': 'value5'}},
-        {'key': 'group3', 'type': 'added', 'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}},
+        {'key': 'group3', 'type': 'added', 
+         'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}},
     ]
     
     result = format_plain(diff)
