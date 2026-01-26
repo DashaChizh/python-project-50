@@ -19,6 +19,8 @@ check:
 
 test:
 	uv run pytest tests/
+	pip install PyYAML
+	pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
 
 test-coverage:
 	uv run pytest --cov=gendiff --cov-report xml tests/
