@@ -18,11 +18,11 @@ check:
 	lint test
 
 test:
-	uv pip install PyYAML
+	uv add PyYAML pytest
 	uv run pytest tests/
 	
 test-coverage:
-	uv pip install PyYAML
+	uv add PyYAML pytest pytest-cov
 	uv run pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
 
 selfcheck: check
