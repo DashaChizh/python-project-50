@@ -3,7 +3,6 @@ from gendiff import generate_diff
 
 
 def get_test_data_path(filename1, filename2):
-    """Возвращает пути к тестовым файлам"""
     filepath1 = Path(__file__).parent / "test_data" / filename1
     filepath2 = Path(__file__).parent / "test_data" / filename2
     return str(filepath1), str(filepath2)
@@ -17,7 +16,6 @@ def test_nested_json():
     
     actual = generate_diff(filepath1, filepath2)
     
-
     expected_start = "{\n    common: {\n      + follow: false"
     
     assert actual.startswith(expected_start)

@@ -8,7 +8,7 @@ def get_test_data_path(filename1, filename2):
     return str(filepath1), str(filepath2)
 
 
-def test_with_json():
+def test_generate_diff_json():
     filepath1, filepath2 = get_test_data_path("file1.json", "file2.json")
     actual = generate_diff(filepath1, filepath2)
     
@@ -23,7 +23,7 @@ def test_with_json():
     assert actual == expected
 
 
-def test_with_yaml():
+def test_generate_diff_yaml():
     filepath1, filepath2 = get_test_data_path("file1.yaml", "file2.yaml")
     actual = generate_diff(filepath1, filepath2)
     
@@ -54,3 +54,4 @@ def test_with_json_and_yaml():
     filepath1, filepath2 = get_test_data_path("file1.yaml", "file2.json")
     actual = generate_diff(filepath1, filepath2)
     assert actual == expected
+
