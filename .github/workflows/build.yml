@@ -64,6 +64,6 @@ jobs:
         pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
     
     - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v4
+      uses: SonarSource/sonarqube-scan-action@v6
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
