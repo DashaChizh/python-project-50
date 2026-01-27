@@ -29,13 +29,11 @@ jobs:
         run: |
           make test-coverage
       - name: SonarQubeScan
-        uses: SonarSource/sonarqube-scan-action@v7
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=DashaChizh_python-project-50
-            -Dsonar.organization=dashachizh
             -Dsonar.projectName="Python Project 50"
             -Dsonar.projectVersion=1.0
             -Dsonar.sources=gendiff
