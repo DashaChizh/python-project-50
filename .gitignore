@@ -7,3 +7,6 @@ dist/
 coverage.xml
 *_cache/
 .python-version
+tox.ini
+sonar-project.properties
+
