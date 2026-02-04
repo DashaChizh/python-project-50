@@ -14,8 +14,7 @@ lint:
 	uv run ruff check gendiff
 
 
-check:
-	lint test
+check: lint test
 
 test:
 	uv add PyYAML pytest
