@@ -19,11 +19,13 @@ check:
 
 test:
 	uv add PyYAML pytest
-	uv run pytest tests/
+	uv run pytest
+#	uv run pytest tests
 	
 test-coverage:
 	uv add PyYAML pytest pytest-cov
-	uv run pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
+	uv run pytest --cov=gendiff --cov-report=xml:coverage.xml
+#	uv run pytest --cov=gendiff --cov-report=xml --cov-branch --junitxml=test-results.xml
 
 selfcheck: check
 .PHONY: install gendiff build package-install lint test test-coverage check selfcheck
