@@ -1,4 +1,4 @@
-from gendiff.diff_builder import build_diff
+from gendiff.scripts.diff_builder import build_diff
 
 
 def test_build_diff_simple():

@@ -1,5 +1,5 @@
 from pathlib import Path
-from gendiff import generate_diff
+from gendiff.scripts.core import generate_diff
 
 
 def get_test_data_path(filename1, filename2):
